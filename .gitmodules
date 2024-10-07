@@ -1,0 +1,6 @@
+[submodule "third-party/openssl-cmake"]
+	path = third-party/openssl-cmake
+	url = git@github.com:viaduck/openssl-cmake.git
+[submodule "third-party/curl"]
+	path = third-party/curl
+	url = git@github.com:curl/curl.git
