@@ -136,7 +136,7 @@ namespace Multipass
             Version version{ "","" };
             if (prodVersionObj.HasMember("items") &&
               prodVersionObj["items"].IsObject()) {
-              auto& prodItems = prodVersionObj["items"].GetObject();
+              auto prodItems = prodVersionObj["items"].GetObject();
               if (prodItems.HasMember("disk1.img") &&
                 prodItems["disk1.img"].IsObject() &&
                 prodItems["disk1.img"].HasMember("sha256") &&
