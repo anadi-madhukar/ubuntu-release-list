@@ -4,3 +4,6 @@
 [submodule "third-party/curl"]
 	path = third-party/curl
 	url = git@github.com:curl/curl.git
+[submodule "third-party/rapidjson"]
+	path = third-party/rapidjson
+	url = git@github.com:Tencent/rapidjson.git
