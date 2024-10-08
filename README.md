@@ -34,13 +34,16 @@ Submodules:
 2. libCurl: This is used to make Https request
 3. rapidjsn: This is used to parse the json response
 
-Building steps:
-`git clone --recursive https://github.com/anadi-madhukar/ubuntu-release-list.git`
-`mkdir build; cd build`
-`cmake ..`
-`cmake --build .`
+Building steps: 
+```
+git clone --recursive https://github.com/anadi-madhukar/ubuntu-release-list.git
+mkdir build; cd build
+cmake ..
+cmake --build .
+```
 
 ## Testing 
-ON Linux and Mac just launch ./src/ubuntu-release-list while in build directory
+ON Linux and Mac just launch `./src/ubuntu-release-list` while in build directory
+
 On Windows, launch `.\src\Debug\ubuntu-release-list.exe`
 
