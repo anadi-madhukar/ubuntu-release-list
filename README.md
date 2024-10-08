@@ -7,7 +7,9 @@ A command-line based http client to query latest Ubuntu versions and releases.
 Just launch the compiled executable on any machine.
 
 After launching, the program will parse the ubuntu releases json present at `https://cloud-images.ubuntu.com/releases/streams/v1/com.ubuntu.cloud:released:download.json`
+
 It will populate an internal map of data structures listing down various releases and their versions. 
+
 All non supported versions are ignored. All versions for machine architctures different than amd64 are ignored. 
 
 User will then get a menu to choose one of the following options :
