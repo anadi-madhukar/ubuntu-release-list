@@ -37,9 +37,9 @@ void keyBoardInteract(std::string &sResponse)
     case 3:
     {
       std::string releaseName, releaseVersion;
-      std::cout << "\nEnter the release name:\n";
+      std::cout << "\nEnter the release name key (example 'com.ubuntu.cloud:server:24.04:amd64'):\n";
       std::cin >> releaseName;
-      std::cout << "\nEnter release version:\n";
+      std::cout << "\nEnter release version (example '20242120') :\n";
       std::cin >> releaseVersion;
       parser.printSha256ofRelease(releaseName, releaseVersion);
     }
