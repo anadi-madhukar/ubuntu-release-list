@@ -4,5 +4,5 @@
 
 namespace Multipass
 {
-  bool IsVersionLess(std::string& one, std::string& two);
+bool IsVersionLess(std::string &one, std::string &two);
 }

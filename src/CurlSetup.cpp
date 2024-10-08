@@ -1,14 +1,14 @@
 #include <curl/curl.h>
 
 /**
- * 
- * @brief A class whose global static variable is used to 
+ *
+ * @brief A class whose global static variable is used to
  * initialize and deinitialize curl global state
- * 
-**/
+ *
+ **/
 class CurlSetup
 {
-  public:
+public:
     CurlSetup()
     {
         curl_global_init(CURL_GLOBAL_ALL);

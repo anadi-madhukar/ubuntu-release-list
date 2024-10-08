@@ -24,11 +24,11 @@ std::string CurlHTTPRequest::get(const std::string &url)
 
     if (!curlHandle_)
     {
-        std::cout<<"\nError: Failed in initializing Curl. Aborting\n";
+        std::cout << "\nError: Failed in initializing Curl. Aborting\n";
         return sResponse;
     }
 
-    std::cout<<"\nInfo: fetching info from the web ..... ";
+    std::cout << "\nInfo: fetching info from the web ..... ";
     curl_easy_setopt(curlHandle_, CURLOPT_URL, url.c_str());
     setCurlCallbackData(&sResponse);
     /* Perform the request, res will get the return code */
@@ -37,8 +37,8 @@ std::string CurlHTTPRequest::get(const std::string &url)
     /* Check for errors */
     if (resposeCode != CURLE_OK)
     {
-      std::cout<<"\ncurl_easy_perform() failed:"
-               <<curl_easy_strerror(resposeCode)<<std::endl;
+        std::cout << "\ncurl_easy_perform() failed:"
+                    << curl_easy_strerror(resposeCode) << std::endl;
         goto cleanup;
     }
     curl_easy_getinfo(curlHandle_, CURLINFO_RESPONSE_CODE, &httpResponseCode);
@@ -52,7 +52,7 @@ cleanup:
 }
 
 size_t CurlHTTPRequest::setResponseCb(char *responseChunk, size_t count,
-                                      size_t bytesPerCount, void *userdata)
+                                        size_t bytesPerCount, void *userdata)
 {
     size_t bytesReceived = count * bytesPerCount;
     std::string *responseString = (std::string *)userdata;
