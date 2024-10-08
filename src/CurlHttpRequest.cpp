@@ -1,9 +1,9 @@
-
 #include "CurlHTTPRequest.h"
+#include <iostream>
+#include <string>
 
 namespace Multipass
 {
-
 CurlHTTPRequest::CurlHTTPRequest()
 {
     curlHandle_ = curl_easy_init();
@@ -24,26 +24,24 @@ std::string CurlHTTPRequest::get(const std::string &url)
 
     if (!curlHandle_)
     {
-        printf("\nError: Failed in initializing Curl. Aborting\n");
+        std::cout<<"\nError: Failed in initializing Curl. Aborting\n";
         return sResponse;
     }
 
-    printf("\nInfo: Sending GET request to %s\n", url.c_str());
+    std::cout<<"\nInfo: fetching info from the web ..... ";
     curl_easy_setopt(curlHandle_, CURLOPT_URL, url.c_str());
     setCurlCallbackData(&sResponse);
     /* Perform the request, res will get the return code */
     resposeCode = curl_easy_perform(curlHandle_);
-    printf("\nResponse received ..\n");
 
     /* Check for errors */
     if (resposeCode != CURLE_OK)
     {
-        printf("\ncurl_easy_perform() failed: %s\n",
-                curl_easy_strerror(resposeCode));
+      std::cout<<"\ncurl_easy_perform() failed:"
+               <<curl_easy_strerror(resposeCode)<<std::endl;
         goto cleanup;
     }
     curl_easy_getinfo(curlHandle_, CURLINFO_RESPONSE_CODE, &httpResponseCode);
-    printf("\nHTTP Response code: %d\n", httpResponseCode);
 
 cleanup:
 

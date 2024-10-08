@@ -1,3 +1,4 @@
+#pragma once
 #include "HTTPRequestInterface.h"
 #include <curl/curl.h>
 
@@ -13,7 +14,12 @@ class CurlHTTPRequest : public HTTPRequestInterface
 public:
     CurlHTTPRequest();
     ~CurlHTTPRequest();
-    std::string get(const std::string &url) override;
+    /**
+    * @brief HTTP GET request method using libCURL.
+    *
+    *
+    */
+      std::string get(const std::string &url) override;
     std::string post(const std::string &url, const std::string &data) override{
         // Not implemented
         return "";
