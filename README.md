@@ -26,8 +26,8 @@ The Json is loaded and parsed only once per run of the program
 This code compiles on all 3 OS: Win32, MacOsX and Linux 
 
 Dependencies are :
-1. cmake version 3.12 or above 
-2. build-essentials on Linux  / Visual Studio on Windows / XCode on MacOSX
+1. `cmake` version 3.12 or above 
+2. `build-essential` on Linux  / Visual Studio on Windows / XCode on MacOSX
 
 Submodules:
 1. openssl-cmake: This compiles openssl based on native compiler on Linux, uses systemp openssl on MacOSX and is Ignored on Windows
