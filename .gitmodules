@@ -1,9 +1,9 @@
 [submodule "third-party/openssl-cmake"]
 	path = third-party/openssl-cmake
-	url = git@github.com:viaduck/openssl-cmake.git
+	url = https://github.com/viaduck/openssl-cmake.git
 [submodule "third-party/curl"]
 	path = third-party/curl
-	url = git@github.com:curl/curl.git
+	url = https://github.com/curl/curl.git
 [submodule "third-party/rapidjson"]
 	path = third-party/rapidjson
-	url = git@github.com:Tencent/rapidjson.git
+	url = https://github.com/Tencent/rapidjson.git
