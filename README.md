@@ -37,6 +37,7 @@ Submodules:
 Building steps: 
 ```
 git clone --recursive https://github.com/anadi-madhukar/ubuntu-release-list.git
+cd ubuntu-release-list
 mkdir build; cd build
 cmake ..
 cmake --build .
