@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.12...3.27)
 project(ubuntu-release-list)
 if(WIN32)
-    message("*******Windows setting sschanel to ON")
     set(CURL_ENABLE_SSL ON)
     set(CURL_USE_SCHANNEL ON)
 else()
