@@ -1,30 +1,37 @@
 cmake_minimum_required(VERSION 3.12...3.27)
 project(ubuntu-release-list)
+
 if(WIN32)
+    # For WIN32, we use the prebuilt Schannel binaries, Openssl Not needed
     set(CURL_ENABLE_SSL ON)
     set(CURL_USE_SCHANNEL ON)
 else()
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-    SET(OPENSSL_CMAKE_FLAGS "-DOPENSSL_USE_STATIC_LIBS=TRUE -DCMAKE_CXX_FLAGS=-pthread")
+    # For Linux and MacOS, we build Openssl and use it with Curl
+    SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -pthread)
+    SET(OPENSSL_CMAKE_FLAGS -DOPENSSL_USE_STATIC_LIBS=TRUE -DCMAKE_CXX_FLAGS=-pthread)
 
     if(APPLE)
-        set(OPENSSL_CMAKE_FLAGS "${OPENSSL_CMAKE_FLAGS} -DSYSTEM_OPENSSL=ON")
+        # For MacOS, we use the system Openssl
+        set(OPENSSL_CMAKE_FLAGS ${OPENSSL_CMAKE_FLAGS} -DSYSTEM_OPENSSL=ON)
+    else()
+        # For Linux, we build Openssl
+        set(OPENSSL_CMAKE_FLAGS ${OPENSSL_CMAKE_FLAGS} -DBUILD_OPENSSL=ON -DOPENSSL_BUILD_VERSION=3.3.2 .)
     endif()
 
-    if(LINUX)
-        set(OPENSSL_CMAKE_FLAGS "${OPENSSL_CMAKE_FLAGS} -DBUILD_OPENSSL=ON -DOPENSSL_BUILD_VERSION=3.3.2")
-    endif()
-
+    # Build Openssl
+    set(CMAKE_CMD_WITH_ARGS ${CMAKE_COMMAND} ${OPENSSL_CMAKE_FLAGS})
     execute_process(
-        COMMAND ${CMAKE_COMMAND} ${OPENSSL_CMAKE_FLAGS} .
-        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/third-party/openssl-cmake")
+        COMMAND ${CMAKE_CMD_WITH_ARGS}
+        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/third-party/openssl-cmake"
+        COMMAND_ECHO  STDOUT)
+
     execute_process(
         COMMAND make
         WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/third-party/openssl-cmake")
     set(OPENSSL_ROOT_DIR "${PROJECT_SOURCE_DIR}/third-party/openssl-cmake/openssl-build/usr/local")
 endif()
 
-
+# Set bunch of flags t disable unwanted features in libcurl
 set(CURL_DISABLE_NTLM ON)
 set(BUILD_CURL_EXE OFF)
 set(BUILD_TESTING OFF)
