@@ -6,6 +6,8 @@
 namespace Multipass
 {
 
+// Method to parse the version string in an 
+// array of integers
 void Parse(int result[4], const std::string &input)
 {
   std::istringstream parser(input);

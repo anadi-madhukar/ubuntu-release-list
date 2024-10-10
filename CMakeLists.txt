@@ -60,4 +60,6 @@ set(CURL_DISABLE_SMTP ON)
 set(CURL_DISABLE_TELNET ON)
 set(CURL_DISABLE_TFTP ON)
 add_subdirectory(third-party/curl)
+
+# Add the subdirectory src
 add_subdirectory(src)

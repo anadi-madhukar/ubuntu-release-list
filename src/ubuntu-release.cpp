@@ -5,15 +5,18 @@
 using namespace Multipass;
 
 const std::string kUbuntuReleasesURL = "https://cloud-images.ubuntu.com/releases/streams/v1/com.ubuntu.cloud:released:download.json";
-;
 
+
+// Function to interact with user and provide options to choose from
 void keyBoardInteract(std::string &sResponse)
 {
+  // Parse the string
   UbuntuReleaseParser parser(sResponse);
   bool quit = false;
   std::cout << "\n\n This programs parses and lists currently supported Ubuntu releases "
                "as mentioned at: cloud-images.ubuntu.com\n\n";
 
+  // Loop over till user quits
   while (!quit)
   {
     std::cout << "\n\n";
@@ -26,6 +29,9 @@ void keyBoardInteract(std::string &sResponse)
 
     int choice;
     std::cin >> choice;
+
+    // Call different print functions in parsed object
+    // based on user input
     switch (choice)
     {
     case 1:

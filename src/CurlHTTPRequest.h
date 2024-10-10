@@ -16,10 +16,18 @@ public:
     ~CurlHTTPRequest();
     /**
      * @brief HTTP GET request method using libCURL.
-     *
+     * @param url The url to request data from
+     * @return std::string The data returned from the server
      *
      */
     std::string get(const std::string &url) override;
+    /**
+     * @brief HTTP POST  request method using libCURL.
+     * @param url The url to request data from
+     * @param data The data to post to the server
+     * @return std::string The data returned from the server
+     *
+     */
     std::string post(const std::string &url, const std::string &data) override
     {
         // Not implemented
