@@ -19,6 +19,10 @@ User will then get a menu to choose one of the following options :
 4. Quit the program
 
 The menu runs in a loop and does not quit after first run. 
+
+![image](https://github.com/user-attachments/assets/21c87ec3-4d58-4f32-8282-fe9ee133b0ed)
+
+
 The Json is loaded and parsed only once per run of the program
 
 
