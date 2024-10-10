@@ -28,7 +28,7 @@ std::string CurlHTTPRequest::get(const std::string &url)
         return sResponse;
     }
 
-    std::cout << "\nInfo: fetching info from the web ..... ";
+    std::cout << "\nFetching info from the web..... "<<std::endl;
     curl_easy_setopt(curlHandle_, CURLOPT_URL, url.c_str());
     setCurlCallbackData(&sResponse);
     /* Perform the request, res will get the return code */
