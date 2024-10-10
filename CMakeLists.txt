@@ -13,6 +13,7 @@ else()
     if(APPLE)
         # For MacOS, we use the system Openssl
         set(OPENSSL_CMAKE_FLAGS ${OPENSSL_CMAKE_FLAGS} -DSYSTEM_OPENSSL=ON)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -std=c++11")
     else()
         # For Linux, we build Openssl
         set(OPENSSL_CMAKE_FLAGS ${OPENSSL_CMAKE_FLAGS} -DBUILD_OPENSSL=ON -DOPENSSL_BUILD_VERSION=3.3.2 .)
